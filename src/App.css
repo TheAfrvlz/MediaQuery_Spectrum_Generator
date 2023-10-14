@@ -1,0 +1,117 @@
+.App .Title{
+  padding: 45px 0px;
+}
+
+.ScreenLine {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding-top: 3em;
+}
+
+.ScreenLine input[type="text"] {
+  width: 90px;
+}
+
+.ScreenLine .Spectrum-Container .Line {
+  width: 80vw;
+  height: 3px;
+  background-color: #e3e3e3;
+}
+
+.ScreenLine .Spectrum-Container {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.SetMedia input[type="text"] {
+  width: 120px;
+}
+
+.SetMedia {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 23px;
+  align-items: center;
+}
+
+.Config {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.Container {
+  display: flex;
+  gap: 2em;
+}
+
+.ScreenLine .Spectrum-Container .Spectrum {
+  position: relative;
+  height: 23px;
+  border-radius: 0.5em;
+  background-color: var(--bs-secondary-bg);
+  border: 1px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.SpectrumMin::after {
+  content: attr(device);
+  font-size: 1em;
+  color: #f8f9fa;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: var(--MinWidth);
+  background-color: var(--Min-bg);
+  border-radius: 0.5em;
+}
+
+.SpectrumMax::after {
+  content: attr(device);
+  font-size: 1em;
+  color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  width: var(--MaxWidth);
+  border-radius: 0.5em;
+  background-color: var(--Max-bg);
+}
+
+.SpectrumInt::after {
+  content: attr(device);
+  font-size: 1em;
+  color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: var(--initialPos);
+  width: var(--IntervalWidth);
+  background-color: var(--In-bg);
+  border-radius: 0.5em;
+}
+
+.MediaResult .form-group{
+  width: 50vw;
+}
