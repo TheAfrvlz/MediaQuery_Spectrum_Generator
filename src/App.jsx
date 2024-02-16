@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import "./App.css";
 import { createContext } from "react";
-import { useState,useContext } from "react";
+import { useState } from "react";
 import { Dropdown, Button } from "react-bootstrap"; // Make sure you have react-bootstrap installed
 
 
@@ -71,30 +71,30 @@ const Interval = () => {
 function ScreenLine() {
 
   const [Spectrum, setSpectrum] = useState([
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%' , '--Min-bg':'#404040'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%' , '--Min-bg':'#309090'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#001510'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#136a8a'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#dc2430'} },
-    { className: 'SpectrumMax', device: 'Samsung Se5', style: { '--MaxWidth': '20%'  , '--Max-bg':'#FFF94C'} },
-    { className: 'SpectrumInt', device: 'Macbook Pro 2022', style: { '--initialPos': '20%', '--IntervalWidth': '60%'  , '--In-bg':'#00dbde'} }
+    //{ className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%' , '--Min-bg':'#404040'} },
+    //{ className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%' , '--Min-bg':'#309090'} },
+    // { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#001510'} },
+    // { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#136a8a'} },
+    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%', '--Min-bg': '#dc2430' } },
+    // { className: 'SpectrumMax', device: 'Samsung Se5', style: { '--MaxWidth': '20%'  , '--Max-bg':'#FFF94C'} },
+    // { className: 'SpectrumInt', device: 'Macbook Pro 2022', style: { '--initialPos': '20%', '--IntervalWidth': '60%'  , '--In-bg':'#00dbde'} }
   ]);
 
   return (
     <div className="ScreenLine ">
-      <input type="text" className="form-control" placeholder="Max: px" />
+      <input type="text" className="form-control" placeholder="Max: px" style={{ backgroundColor: '#ffffff0e', border: 'none', color: 'white', caret: 'none', outline: 'none' }} />
       <div className="Spectrum-Container">
         <div className="Line"></div>
         {Spectrum.map((divData, index) => (
           <div
             key={index}
-            className={`border border-1 Spectrum ${divData.className}`}
+            className={`Spectrum ${divData.className}`}
             device={divData.device}
             style={divData.style}
           ></div>
         ))}
       </div>
-      <input type="text" className="form-control" placeholder="Min: px" />
+      <input type="text" className="form-control" placeholder="Min: px" style={{ backgroundColor: '#ffffff0e', border: 'none', color: 'white', caret: 'none', outline: 'none' }} />
     </div>
   );
 }
@@ -104,11 +104,16 @@ const MediaResult = () => {
     <div className="MediaResult">
       <div className="form-group">
         <textarea
+          style={{ backgroundColor: '#ffffff0e', border: 'none', color: '#999999', caret: 'none', outline: 'none' }}
           className="form-control"
           id="exampleFormControlTextarea1"
           rows="5"
         ></textarea>
       </div>
+      <div className="Controls">
+        <button className="Copy btn btn-primary">Copy Clipboard</button>
+        <button className="Reset btn btn-danger">Reset</button>
+        </div>
     </div>
   );
 };
@@ -142,11 +147,11 @@ const SetMedia = () => {
       <button className="btn btn-danger">
         <i className="bi bi-minus-lg"></i> Delete
       </button>
-      <button className="btn btn-warning">
+      <button className="v">
         <i className="bi bi-pencil-square"></i> Edit
       </button>
-      <div className="Color">
-        <label htmlFor="ColorPicker"> Spectrum Color</label>
+      <div className="Color gap-1 flex ">
+        <label htmlFor="ColorPicker" style={{ marginRight: '10px', color: '#999999' }}> Spectrum Color</label>
         <input type="color" id="ColorPicker" />
       </div>
       <input type="text" className="form-control" placeholder="Device" />
@@ -179,23 +184,13 @@ const SetMedia = () => {
 
 function App() {
 
-  const [Spectrum, setSpectrum] = useState([
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%' , '--Min-bg':'#404040'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%' , '--Min-bg':'#309090'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#001510'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#136a8a'} },
-    { className: 'SpectrumMin', device: 'Iphone', style: { '--MinWidth': '20%'  , '--Min-bg':'#dc2430'} },
-    { className: 'SpectrumMax', device: 'Samsung Se5', style: { '--MaxWidth': '20%'  , '--Max-bg':'#FFF94C'} },
-    { className: 'SpectrumInt', device: 'Macbook Pro 2022', style: { '--initialPos': '20%', '--IntervalWidth': '60%'  , '--In-bg':'#00dbde'} }
-  ]);
-
   return (
     <div className="App">
       <h1 className="Title">Device Media Query Spectrum</h1>
-      <EspecCon.Provider value={{Spectrum, setSpectrum}} >
-      <ScreenLine />
-      <SetMedia />
-      <MediaResult />
+      <EspecCon.Provider>
+        <ScreenLine />
+        <SetMedia />
+        <MediaResult />
       </EspecCon.Provider>
     </div>
   );

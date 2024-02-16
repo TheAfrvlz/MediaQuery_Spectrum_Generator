@@ -1,4 +1,6 @@
-.App .Title{
+
+.App .Title{ 
+  color:#c8c8c8;
   padding: 45px 0px;
 }
 
@@ -17,7 +19,7 @@
 .ScreenLine .Spectrum-Container .Line {
   width: 80vw;
   height: 3px;
-  background-color: #e3e3e3;
+  background-color: #b5b4b4;
 }
 
 .ScreenLine .Spectrum-Container {
@@ -56,10 +58,10 @@
 
 .ScreenLine .Spectrum-Container .Spectrum {
   position: relative;
-  height: 23px;
-  border-radius: 0.5em;
-  background-color: var(--bs-secondary-bg);
-  border: 1px;
+  height: 35px;
+  border:none;
+  border-radius:17px;
+  background-color:#ffffff1b;
   width: 100%;
   cursor: pointer;
 }
@@ -77,7 +79,7 @@
   left: 0;
   width: var(--MinWidth);
   background-color: var(--Min-bg);
-  border-radius: 0.5em;
+  border-radius:17px;
 }
 
 .SpectrumMax::after {
@@ -92,7 +94,7 @@
   top: 0;
   right: 0;
   width: var(--MaxWidth);
-  border-radius: 0.5em;
+  border-radius:17px;
   background-color: var(--Max-bg);
 }
 
@@ -109,9 +111,21 @@
   left: var(--initialPos);
   width: var(--IntervalWidth);
   background-color: var(--In-bg);
-  border-radius: 0.5em;
+  border-radius:17px;
 }
 
 .MediaResult .form-group{
   width: 50vw;
+}
+
+.ScreenLine .form-control::placeholder {
+  color: #999999; /* Cambia este valor al color deseado para el placeholder */
+}
+
+
+.Controls{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 25px 0px;
 }
